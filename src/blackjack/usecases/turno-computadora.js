@@ -1,4 +1,5 @@
 import { pedirCarta, valorCarta, crearCartaHTML } from './';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 /**
  * turno de la computadora
@@ -31,13 +32,38 @@ export const turnoComputadora = ( puntosMinimos, puntosHTML, divCartasComputador
 
     setTimeout(() => {
         if( puntosComputadora === puntosMinimos ) {
-            alert('Nadie gana :(');
+            Swal.fire({
+                title: 'Empate!',
+                text: 'Intenta nuevamente.',
+                imageUrl: 'https://cnnespanol.cnn.com/wp-content/uploads/2019/05/grumpy-cat-foto.jpg?quality=100&strip=info',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+              })
         } else if ( puntosMinimos > 21 ) {
-            alert('Computadora gana')
+            Swal.fire({
+                title: 'Perdiste!',
+                text: 'Intenta nuevamente.',
+                imageUrl: 'https://www.petlife.mx/u/fotografias/m/2023/5/18/f768x1-2135_2262_5050.jpg',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+              })
         } else if( puntosComputadora > 21 ) {
-            alert('Jugador Gana');
+            Swal.fire({
+                title: 'Ganaste!',
+                text: 'Felicitaciones!!!.',
+                imageUrl: 'https://www.publimetro.com.mx/resizer/QfBQ1ptVlW-JVr7us1ZeBhQbUJg=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/6WIBLK4JVZAM5IU5BCYLYPTG4I.jpg',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+              })
         } else {
-            alert('Computadora Gana')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo malo ocurrio...Intenta nuevamente!!',
+              })
         }
     }, 100 );
 }
